@@ -1,0 +1,81 @@
+1) Посмотреть где я
+	Ввести	pwd
+2) Создать папку
+	Ввести	mkdir folder
+3) Зайти в папку
+	Ввести	cd folder
+4) Создать 3 папки
+	Ввести	mkdir test1 test2 test3
+5) Зайти в любоую папку
+	Ввести	cd test2
+6) Создать 5 файлов (3 txt, 2 json)
+	Ввести	touch {th1.txt,th2.txt,th3.txt,js1.json,js2.json}
+7) Создать 3 папки
+	Ввести	mkdir {qa4,qa5,qa6}
+8. Вывести список содержимого папки
+	Ввести	ls -la
+9) + Открыть любой txt файл
+	Ввести	cat > th1.txt
+10) + написать туда что-нибудь, любой текст.
+	"Написать любой текст" Например: Sarah
+11) + сохранить и выйти.
+	Ctrl + C
+12) Выйти из папки на уровень выше
+	Ввести	cd ..
+13) переместить любые 2 файла, которые вы создали, в любую другую папку.
+	Ввести	mv {th1.txt,th2.txt} test2/
+14) скопировать любые 2 файла, которые вы создали, в любую другую папку.
+	Ввести	cp {js1.json,js2.json} test3/
+15) Найти файл по имени
+	Ввести	find . -name "Имя файла" 
+16) просмотреть содержимое в реальном времени (команда grep) изучите как она работает.
+	Ввести	grep [опции] шаблон [/путь/к/файлу/или/папке...] Например: grep -i sar test2/th1.txt
+17) вывести несколько первых строк из текстового файла
+	Ввести	head -n(указываем сколько строк) путь к файлу/имя файла
+18) вывести несколько последних строк из текстового файла
+	Ввести	tail -n(указываем сколько строк) путь к файлу/имя файла
+19) просмотреть содержимое длинного файла (команда less) изучите как она работает.
+	Ввести	less "Имя файла"
+20) вывести дату и время
+	Ввести	date -u
+=========
+Задание *
+1) Отправить http запрос на сервер.
+http://162.55.220.72:5005/terminal-hw-request
+	curl http://162.55.220.72:5006/terminal-hw-request (изменяем порт 5005 на 5006, чтобы получить ответ)
+	Получен ответ:
+		
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   283  100   283    0     0   1936      0 --:--:-- --:--:-- --:--:--  1938{
+  "Intro": "Hello!! This is your the first response from server",
+  "Tasks": {
+    "Task_1": "Send the next URL in terminal: http://162.55.220.72:5005/get_method?name=(set_your_String)&age=(set_your_number)",
+    "result": [
+      "Your_String",
+      "Your_number"
+    ]
+  }
+		Можно продолжить:
+		$ curl http://162.55.220.72:5005/get_method?name=Konstantin %age=27
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    28  100    28    0     0    128      0 --:--:-- --:--:-- --:--:--   129[
+  "Konstantin",
+  null
+]
+
+curl: (3) URL rejected: Bad hostname
+
+2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+	Предусловие: Должна быть создана папка foldername
+	Ввести список команд:
+		#!/bin/bash
+
+		cd foldername
+		mkdir {qa1,qa2,qa3}
+		cd qa2
+		touch {th1.txt,th2.txt,th3.txt,js1.json,js2.json}
+		mkdir {qa4,qa5,qa6}
+		ls -lQ
+		mv {th2.txt,js1.json} qa5/
